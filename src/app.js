@@ -2,7 +2,7 @@ import express from 'express'
 import cores from "cors"
 import cookieParser from "cookie-parser"
 
-const app = express()
+const app = express();
 
 app.use(cores({
     origin: process.env.CORS_URL
@@ -10,11 +10,11 @@ app.use(cores({
 }))
 
 
-app.use(express.json({ limit: "20kb " })) // To get Data in the json Formate
+app.use(express.json({ limit: "20kb" })) // To get Data in the json Formate
 
 app.use(express.urlencoded({ extends: true, limit: "20kb" })) // TO undestude the Url requste
 
-app.use(express.static("public")) 
+app.use(express.static("public"))
 
 app.use(cookieParser())
 
@@ -22,6 +22,6 @@ app.use(cookieParser())
 
 import userRouter from "../src/routes/User.routes.js"
 
-app.use("/api/v1/users" , userRouter)
+app.use("/api/v1/users", userRouter)
 
 export { app }
