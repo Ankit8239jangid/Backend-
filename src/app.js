@@ -10,9 +10,9 @@ app.use(cores({
 }))
 
 
-app.use(express.json({ limit: "20kb" })) // To get Data in the json Formate
+app.use(express.json({ limit: "20mb" })) // To get Data in the json Formate
 
-app.use(express.urlencoded({ extends: true, limit: "20kb" })) // TO undestude the Url requste
+app.use(express.urlencoded({ extends: true, limit: "20mb" })) // TO undestude the Url requste
 
 app.use(express.static("public"))
 

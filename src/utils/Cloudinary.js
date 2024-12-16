@@ -9,7 +9,7 @@ cloudinary.config({
 })
 
 
-const uplode_on_cloudinary = async (localFilePath) => {
+const upload_on_cloudinary = async (localFilePath) => {
     try {
         if (!localFilePath) return null
 
@@ -19,8 +19,8 @@ const uplode_on_cloudinary = async (localFilePath) => {
 
         })
         //file has been uploaded successfully
-        console.log("file has been uploaded successfully", response.url)
-        return response
+        fs.unlinkSync(localFilePath)
+        return response;
     } catch (error) {
         fs.unlinkSync(localFilePath)
         console.log("error in uploading file", error) //remove the locally saved temporary file as the upload operation is failed
@@ -29,5 +29,5 @@ const uplode_on_cloudinary = async (localFilePath) => {
 
 }
 
-export default uplode_on_cloudinary
+export  {upload_on_cloudinary}
 
